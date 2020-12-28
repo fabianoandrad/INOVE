@@ -1,0 +1,83 @@
+
+.page-details-table {
+    display: flex;
+    height: 100%;
+  }
+
+  table {
+    width: 130rem;
+    text-align: center;
+    height: auto;
+    border-spacing: .6rem;
+    
+  }
+
+  .stock-values-table{
+    width: 60rem;
+  }
+
+  .stock-th {
+    text-align: left;
+  
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.4rem;
+   
+    color: #16862e;
+  }
+
+  .stock-td {
+    text-align: left;
+
+    padding: 1rem;
+  
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2rem;
+
+    color: #000000;
+    
+  }
+
+  #total-table, table.rows {
+    text-align: left;
+    padding-bottom: 2rem;
+  
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.4rem;
+  
+    color: #0a4818;
+  }
+
+
+  
+  table th {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.6rem;
+  
+    color: #000000;
+  }
+  table td {
+    border: 1px solid #989898;
+    border-radius: 0.4rem;
+    border-style: groove;
+    border-color: #f0f0f0;
+
+    padding: .2rem .3rem;
+  
+    height: 2.6rem;
+  
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+  
+    color: #000000;
+    
+  }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/page-sales.css">
+    <link rel="stylesheet" href="/css/aside-bar.css">
+    <link rel="stylesheet" href="/css/table.css">
+
+    <link rel="icon" href="/images/icon.png" />
+</head>
+
+<body>
+    <div id="page-sales">
+
+        <aside>
+
+            <header>
+                <img src="/images/logoInove.svg" alt="Logo Inove">
+            </header>
+
+            <div id="page-buttons">
+                <nav>
+                    <a href="index">Início</a>
+                    <a href="page-list-stock">Listas de estoque</a>
+                </nav>
+
+                <hr>
+
+                <form>
+
+                    <fieldset class="search-id">
+
+                        <div class="input-block-id">
+                            <label for="id">Buscar ID produto</label>
+                            <input type="search" id="id" name="id" value="" required>
+                        </div>
+
+                        <button class="search" type="submit">
+                            <img src="/images/lupa.svg" alt="Buscar produto">
+                        </button>
+
+                    </fieldset>
+                </form>
+
+                <form action="save-list-sales" method="post">
+                    <fieldset>
+                        {{#each selectListStockId}}
+
+                        <div class="input-block">
+                            <label for="idStock">ID produto</label>
+                            <input required id="idStock" name="idStock" value="{{this.id}}" readonly>
+                        </div>
+
+
+                        <div class="input-block">
+                            <label for="product">Produto</label>
+                            <input id="product" name="product" value="{{this.product}}" readonly>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="team">Grupo</label>
+                            <input id="team" name="team" value="{{this.team}}" readonly>
+                        </div>
+
+
+                        <div class="input-block">
+                            <label for="stock">Quantidade em Estoque</label>
+                            <input id="stock" name="stock" value="{{this.amount}}" readonly>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="amount">Quantidade a vender</label>
+                            <input id="amount" name="amount" value="" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="price">Valor de venda</label>
+                            <input id="price" name="price" value="{{this.price}}" readonly>
+                        </div>
+
+
+                        {{!-- <div class="input-block">
+                            <label for="total">Total</label>
+                            <input id="total" name="total" value="22">
+                        </div> --}}
+
+                        {{!-- <div class="input-block">
+                            <label for="date">Data</label>
+                            <input type="date" id="date" name="date">
+                        </div> --}}
+
+
+                        <button class="add-product add-sell" type="submit">
+                            Adicionar venda
+                        </button>
+
+                        {{/each}}
+
+                    </fieldset>
+
+                </form>
+
+                <hr>
+
+                <footer>
+                    <form action="page-sales-delete">
+                        <fieldset>
+                            <div class="button-delete">
+                                <input type="number" name="id_delete" id="id_delete" value="" required>
+                                <button type="submit" class="btn-delete">Excluir venda</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <div>
+                        <p>@Inove 2020</p>
+                    </div>
+                </footer>
+
+
+
+            </div>
+
+
+        </aside>
+
+        <main>
+            <div id="container-sales">
+                <div>
+                    <h1>Vendas</h1>
+                </div>
+
+                <div id="total-table">
+                    <table.rows>
+                        <tr>
+                            <th>Total de vendas </th>
+                        </tr>
+                        <tr>
+                            <td>{{sumTotalFormatted}}</td>
+                        </tr>
+
+                        </table>
+                </div>
+
+                <hr>
+
+                <div class="page-details-table">
+
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID do produto</th>
+                            <th>Produto</th>
+                            <th>Grupo</th>
+                            <th>Quantidades</th>
+                            <th>Valor</th>
+                            <th>Total</th>
+                            <th>Data</th>
+                        </tr>
+
+                        {{#each listSales}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.idStock}}</td>
+                            <td>{{this.product}}</td>
+                            <td>{{this.team}}</td>
+                            <td>{{this.amount}}</td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.total}}</td>
+                            <td>{{this.date}}</td>
+                        </tr>
+                        {{/each}}
+
+                    </table>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+    {{!-- <script src="./scripts/page-sales.js"></script> --}}
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  height: 100vh;
+  background: #9cc7f2;
+ 
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+#page-home {
+  min-width: 100vh;
+}
+
+
+.image-logo {
+  margin: 0 3rem;
+  width: 24rem;
+  height: 24rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.buttons a {
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+footer {
+  padding-top: 20rem;
+}
+
+footer p {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #999999;
+}
+
+@media (max-width: 980px) {
+  .image-logo {
+    margin: 3rem;
+    width: 16rem;
+    height: 16rem;
+  }
+
+  section .buttons {
+    display: grid;
+    grid-template-rows: repeat(1fr, 1fr);
+    row-gap: 6rem;
+  }
+
+  .buttons {
+    margin: auto;
+  }
+
+  .buttons img {
+    width: 24rem;
+    height: 24rem;
+  }
+
+  footer {
+    padding-top: 20rem;
+  }
+}
+
+/* efeito fader buttons */
+
+.buttons, footer{
+  animation-name: fader;
+  animation-duration: 1500ms;
+}
+
+@keyframes fader {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+
+  }
+  to{
+    opacity: 1;
+    transform: scale(1)
+
+  }
+}
+
+/* fazer descer o botão quando clicado */
+
+.btn-sales-hide, .btn-stock-hide{
+  animation: hide 800ms;
+  animation-fill-mode: forwards;
+  /* animation-timing-function: steps(4);*/
+} 
+
+
+@keyframes hide{
+  from{
+    transform: translateY(0);
+
+  }
+  to{
+    transform: translateY(100vh)
+    
+  }
+}

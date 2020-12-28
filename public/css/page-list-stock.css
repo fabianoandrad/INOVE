@@ -1,0 +1,41 @@
+#page-list-stock {
+  display: flex;
+}
+
+body {
+  background: #ffffff;
+  /* background: #2b2b2b; */
+}
+
+/* main {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+} */
+
+#container-list-stock {
+  margin: 4rem;
+  align-items: center;
+}
+
+#container-list-stock h1 {
+  text-align: center;
+  padding-bottom: 2rem;
+
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4.8rem;
+
+  color: #7094b9;
+}
+
+#container-list-stock hr {
+  height: .2rem;
+
+  border: 0;
+
+  background: #e8f4fd;
+  margin: 3rem 0;
+}

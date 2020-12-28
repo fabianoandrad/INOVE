@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de estoque</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/page-list-stock.css">
+    <link rel="stylesheet" href="/css/aside-bar.css">
+    <link rel="stylesheet" href="/css/table.css">
+
+    <link rel="icon" href="/images/icon.png" />
+</head>
+
+<body>
+    <div id="page-list-stock">
+
+        <aside>
+
+            <header>
+                <img src="/images/logoInove.svg" alt="Logo Inove">
+            </header>
+
+            <div id="page-buttons">
+                <nav>
+                    <a href="index">Início</a>
+                    <a href="page-sales">Vendas</a>
+                </nav>
+
+                <hr>
+
+                <form>
+
+                    <fieldset class="search-id">
+
+                        <div class="input-block-id">
+                            <label for="id">Buscar produto</label>
+                            <input type="search" id="id" name="id" value="" required>
+                        </div>
+
+                        <button class="search" type="submit">
+                            <img src="/images/lupa.svg" alt="Buscar produto">
+                        </button>
+
+                    </fieldset>
+                </form>
+
+                <form class="editListstock" action="save-list-stock" method='post'>
+                    <fieldset>
+                        {{#each selectListStockId}}
+
+                        <div class="input-block">
+                            <label hidden for="id">ID</label>
+                            <input hidden id="id" name="id" value="{{this.id}}">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="product">Produto</label>
+                            <input id="product" name="product" value="{{this.product}}">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="team">Grupo</label>
+                            <input id="team" name="team" value="{{this.team}}">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="amount">Quantidade</label>
+                            <input type="text" id="amount" name="amount" value="{{this.amount}}">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="cost">Preço de Custo</label>
+                            <input type="text" id="cost" name="cost" value="{{this.cost}}">
+                        </div>
+
+                        {{!-- <div class="input-block">
+                            <label for="stock">Total Estoque</label>
+                            <input type="text" id="stock" name="stock">
+                        </div> --}}
+
+                        <div class="input-block">
+                            <label for="price">Preço de venda</label>
+                            <input type="text" id="price" name="price" value="{{this.price}}">
+                        </div>
+
+                        {{!-- <div class="input-block">
+                            <label for="profit">Lucro</label>
+                            <input type="text" id="profit" name="profit">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="porcentage">%</label>
+                            <input type="text" id="porcentage" name="porcentage">
+                        </div> --}}
+
+                        <div class="input-block">
+                            <label for="comments">Observações</label>
+                            <textarea id="comments" name="comments">{{this.comments}}</textarea>
+                        </div>
+
+
+
+                        {{#if this.id}}
+                        <button class="edit-product" type="submit">
+                            Editar produto
+                        </button>
+
+                        {{else}}
+                        <button class="add-product" type="submit">
+                            Salvar
+                        </button>
+                        {{/if}}
+
+                        {{/each}}
+
+                    </fieldset>
+                </form>
+
+            </div>
+
+            <hr>
+
+            <footer>
+                <form action="page-list-stock-delete">
+                    <fieldset>
+                        <div class="button-delete">
+                            <input type="number" name="id_product" id="id_product" value="" required>
+                            <button type="submit" class="btn-delete">Excluir produto</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div>
+                    <p>@Inove 2020</p>
+                </div>
+
+            </footer>
+
+        </aside>
+
+        <main>
+            <div id="container-list-stock">
+                <div>
+                    <h1>Lista de estoque</h1>
+                </div>
+
+                <div>
+                    <table class="stock-values-table">
+                        <tr>
+                            <th class="stock-th">Valor total do estoque</th>
+                            <th class="stock-th">Total de itens</th>
+                            <th class="stock-th">Lucro</th>
+                        </tr>
+                        <tr>
+                            <td class="stock-td">{{sumStockFormatted}}</td>
+                            <td class="stock-td">{{sumItems}}</td>
+                            <td class="stock-td">{{sumProfitFormatted}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <div class="page-details-table">
+
+                    <table>
+                        <tr>
+                            <th>ID produto</th>
+                            <th>Produto</th>
+                            <th>Grupo</th>
+                            <th>Quantidade</th>
+                            <th>Preço de Custo</th>
+                            <th>Total Estoque / Custo</th>
+                            <th>Preço de venda</th>
+                            <th>Lucro</th>
+                            <th>%</th>
+                            <th>Observações</th>
+                        </tr>
+
+                        {{#each listStock}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.product}}</td>
+                            <td>{{this.team}}</td>
+                            <td>{{this.amount}}</td>
+                            <td>{{this.cost}}</td>
+                            <td>{{this.stock}}</td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.profit}}</td>
+                            <td>{{this.porcentage}}</td>
+                            <td>{{this.comments}}</td>
+                        </tr>
+                        {{/each}}
+
+                    </table>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+    {{!--
+    <script src="/src/pages.js"></script> --}}
+    {{!--
+    <script src="/scripts/page-list-stock.js"></script> --}}
+</body>
+
+</html>

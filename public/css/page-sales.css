@@ -1,0 +1,45 @@
+#page-sales {
+  display: flex;
+}
+
+#page-details-table{
+  width: 100%;
+}
+
+body {
+  background: #ffffff;
+  /* background: #2b2b2b; */
+}
+
+/* main {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+} */
+
+#container-sales {
+  margin: 4rem;
+  align-items: center;
+}
+
+#container-sales h1 {
+  text-align: center;
+  padding-bottom: 4rem;
+
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4.8rem;
+
+  color: #7094b9;
+}
+
+#container-sales hr {
+  height: 3px;
+
+  border: 0;
+
+  background: #e8f4fd;
+  margin: 3rem 0;
+}
