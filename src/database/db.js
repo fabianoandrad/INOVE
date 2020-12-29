@@ -13,7 +13,8 @@ function execute (db){
             price INTEGER,
             profit INTEGER,
             porcentage INTEGER,
-            comments TEXT
+            comments TEXT,
+            alert INTEGER
             );
             
         CREATE TABLE IF NOT EXISTS list_sales (

@@ -9,7 +9,8 @@ function saveListStock(db, listStock){
         price,
         profit,
         porcentage,
-        comments
+        comments,
+        alert
       ) VALUES (
     
         '${listStock.product}',
@@ -20,7 +21,8 @@ function saveListStock(db, listStock){
         '${listStock.price}',
         '${listStock.profit}',
         '${listStock.porcentage}',
-        '${listStock.comments}'
+        '${listStock.comments}',
+        '${listStock.alert}'
 
        )
     `)

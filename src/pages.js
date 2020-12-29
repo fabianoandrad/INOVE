@@ -2,10 +2,9 @@
 const Database = require("./database/db");
 const saveListStock = require("./database/saveListStock");
 const saveListSales = require("./database/saveListSales");
-//const editListStock = require("../public/scripts/page-list-stock");
-
 
 module.exports = {
+
   index(req, res) {
     const test = req.query;
     return res.render("index");
@@ -31,6 +30,8 @@ module.exports = {
       let valueProfit = 0
 
       listStock.forEach(element => {
+        //verificar quantidade se <= a 5
+        if(element.amount <= 5) element.alert = 1
 
         //Total estoque / quantidade x custo
         element.stock = element.amount * element.cost
@@ -106,7 +107,7 @@ module.exports = {
   async saveListStock(req, res) {
     const fields = req.body;
 
-    //Salvar produto
+    //Salvar produto no estoque
     try {
       const dbStock = await Database;
 
@@ -121,6 +122,7 @@ module.exports = {
           profit: '',
           porcentage: '',
           comments: fields.comments,
+          alert: 0,
         });
 
       } else {

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vendas</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/page-sales.css">
     <link rel="stylesheet" href="/css/aside-bar.css">
@@ -94,10 +95,15 @@
                             <input type="date" id="date" name="date">
                         </div> --}}
 
-
+                        {{#if this.amount}}
                         <button class="add-product add-sell" type="submit">
                             Adicionar venda
                         </button>
+                        {{else}}
+                        <button  onclick="productNoStock()"  class="add-product" type="button">
+                            Adicionar venda
+                        </button>
+                        {{/if}}
 
                         {{/each}}
 
@@ -183,7 +189,8 @@
         </main>
 
     </div>
-    {{!-- <script src="./scripts/page-sales.js"></script> --}}
+
+    <script src="../scripts/page-sales.js"></script>
 </body>
 
 </html>

@@ -181,8 +181,24 @@
                             <th>Observações</th>
                         </tr>
 
+
                         {{#each listStock}}
+                        {{#if this.alert}}
+                        
                         <tr>
+                            <td style="background-color:#fd3333">{{this.id}}</td>
+                            <td style="background-color:#fd3333">{{this.product}}</td>
+                            <td style="background-color:#fd3333">{{this.team}}</td>
+                            <td style="background-color:#fd3333">{{this.amount}}</td>
+                            <td style="background-color:#fd3333">{{this.cost}}</td>
+                            <td style="background-color:#fd3333">{{this.stock}}</td>
+                            <td style="background-color:#fd3333">{{this.price}}</td>
+                            <td style="background-color:#fd3333">{{this.profit}}</td>
+                            <td style="background-color:#fd3333">{{this.porcentage}}</td>
+                            <td style="background-color:#fd3333">{{this.comments}}</td>
+                        </tr>
+                        {{else}}
+                         <tr>
                             <td>{{this.id}}</td>
                             <td>{{this.product}}</td>
                             <td>{{this.team}}</td>
@@ -194,6 +210,8 @@
                             <td>{{this.porcentage}}</td>
                             <td>{{this.comments}}</td>
                         </tr>
+                        {{/if}}
+
                         {{/each}}
 
                     </table>
@@ -204,10 +222,7 @@
         </main>
 
     </div>
-    {{!--
-    <script src="/src/pages.js"></script> --}}
-    {{!--
-    <script src="/scripts/page-list-stock.js"></script> --}}
+
 </body>
 
 </html>
