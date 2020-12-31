@@ -7,7 +7,7 @@ server
 .use(express.urlencoded({ extended: true }))
 .use(express.static('public'))
 
-//configura o template engine
+//configura o template enginer
 .set('views', path.join(__dirname, 'views'))
 .set('view engine', 'hbs')
 //.
